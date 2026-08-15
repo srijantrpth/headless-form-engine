@@ -1,53 +1,62 @@
 # Headless Multi-Step Form Engine
 
-React Project
+A headless and type-safe form engine for building multi-step forms in React.
 
-A headless, type-safe multi-step form engine for React applications.
+Built with TypeScript, React, Vite, and Tailwind CSS. The engine is responsible for form state, step management, validation, navigation, and submission while leaving the UI entirely to the consuming application.
 
-Built with **TypeScript**, **React**, **Vite**, and **Tailwind CSS**, this project provides the logic and state management required to build flexible signup, onboarding, checkout, and wizard-style forms while keeping the UI completely under your control.
+## Overview
 
-## ✨ Features
+Multi-step forms often contain a significant amount of state and navigation logic.
 
-- 🧩 **Headless architecture** — no opinionated UI components
-- ⚛️ **React-first** — built specifically for React applications
-- 🔷 **TypeScript** — strongly typed form configuration and state
-- 🪜 **Multi-step forms** — easily create signup and onboarding flows
-- ✅ **Validation** — support field and step-level validation
-- 🔄 **Navigation** — next, previous, and step navigation
-- 💾 **Form state management** — preserve values across steps
-- 🎨 **Tailwind CSS friendly** — bring your own styling
-- ♻️ **Reusable** — use the same engine across different forms
-- 🚫 **No UI lock-in** — the engine controls behavior, not presentation
+A typical signup flow may need to handle:
 
-## 🏗️ Architecture
+- Multiple steps
+- Field state
+- Validation
+- Cross-field validation
+- Step navigation
+- Conditional steps
+- Error handling
+- Form submission
+- Preserving state between steps
+- Async validation
 
-The engine separates form logic from the presentation layer.
+This project separates that logic from the presentation layer.
+
+The engine manages the form.
+
+The application manages the UI.
 
 ```text
-┌──────────────────────────────┐
-│          React UI            │
-│                              │
-│  Inputs / Buttons / Layout   │
-│  Tailwind CSS                │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│       Form Engine API        │
-│                              │
-│  Form State                  │
-│  Step Navigation             │
-│  Validation                  │
-│  Submission                  │
-│  Field Management            │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│      Form Configuration      │
-│                              │
-│  Steps                       │
-│  Fields                      │
-│  Validation Rules            │
-│  Default Values              │
-└──────────────────────────────┘
+                    React Application
+                           |
+                           v
+                +---------------------+
+                |     Form UI         |
+                |                     |
+                | Inputs              |
+                | Buttons             |
+                | Step Indicators     |
+                | Layout              |
+                +----------+----------+
+                           |
+                           v
+                +---------------------+
+                |    Form Engine      |
+                |                     |
+                | Form State          |
+                | Step State          |
+                | Validation          |
+                | Navigation          |
+                | Submission          |
+                +----------+----------+
+                           |
+                           v
+                +---------------------+
+                |   Form Definition   |
+                |                     |
+                | Steps               |
+                | Fields              |
+                | Rules               |
+                | Configuration       |
+                +---------------------+
