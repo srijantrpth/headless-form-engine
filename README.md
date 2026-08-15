@@ -1,5 +1,7 @@
 # Headless Multi-Step Form Engine
 
+React Project
+
 A headless, type-safe multi-step form engine for React applications.
 
 Built with **TypeScript**, **React**, **Vite**, and **Tailwind CSS**, this project provides the logic and state management required to build flexible signup, onboarding, checkout, and wizard-style forms while keeping the UI completely under your control.
